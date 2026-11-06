@@ -1,0 +1,23 @@
+_BASE_: [
+  '../datasets/dior.yml',
+  '../runtime.yml',
+  '_base_/optimizer_6x.yml',
+  '_base_/rtdetr_r50vd.yml',
+  '_base_/rtdetr_reader.yml',
+]
+
+# WSL2 path for the local RTX 5060 training environment.
+weights: /mnt/d/DyLG-DETR/output/rtdetr_r50vd_6x_dior_wsl/model_final
+pretrain_weights: /mnt/d/DyLG-DETR/rtdetr_r50vd_6x_coco.pdparams
+save_dir: /mnt/d/DyLG-DETR/output/rtdetr_r50vd_6x_dior_wsl
+use_gpu: true
+find_unused_parameters: true
+log_iter: 20
+save_only_final: true
+
+TrainDataset:
+  dataset_dir: /mnt/d/dataset/dior_extract/DIOR
+EvalDataset:
+  dataset_dir: /mnt/d/dataset/dior_extract/DIOR
+TestDataset:
+  dataset_dir: /mnt/d/dataset/dior_extract/DIOR

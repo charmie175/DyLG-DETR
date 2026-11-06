@@ -1,0 +1,58 @@
+_BASE_: [
+  '../runtime.yml',
+  '../datasets/dota_v1_hbb.yml',
+  '_base_/optimizer_6x.yml',
+  '_base_/rtdetr_r50vd.yml',
+  '_base_/rtdetr_reader.yml',
+]
+
+# DOTA-v1.0 HBB configuration for AutoDL.
+# 1024x1024 patches with COCO-format HBB annotations.
+use_gpu: true
+metric: COCO
+num_classes: 15
+classwise: true
+epoch: 72
+amp: false
+skip_nonfinite_gradients: true
+find_unused_parameters: true
+log_iter: 20
+save_dir: /root/autodl-tmp/dota_output
+snapshot_epoch: 1
+save_optimizer: true
+save_only_final: false
+pretrain_weights: /root/rtdetr_r50vd_6x_coco.pdparams
+
+
+# Fixed-size batches avoid introducing an unrelated source of numerical
+# variation while validating the custom DyLG backbone.
+worker_num: 0
+TrainReader:
+  batch_size: 1
+  shuffle: true
+  drop_last: true
+  use_shared_memory: false
+  sample_transforms:
+    - Decode: {}
+    - RandomDistort: {prob: 0.8}
+    - RandomExpand: {fill_value: [123.675, 116.28, 103.53]}
+    - RandomCrop: {prob: 0.8}
+    - RandomFlip: {}
+  batch_transforms:
+    - BatchRandomResize: {target_size: [1024, 1024], random_size: false, random_interp: false, keep_ratio: false}
+    - NormalizeImage: {mean: [0., 0., 0.], std: [1., 1., 1.], norm_type: none}
+    - NormalizeBox: {}
+    - BboxXYXY2XYWH: {}
+    - Permute: {}
+
+EvalReader:
+  batch_size: 1
+TestReader:
+  batch_size: 1
+
+RTDETRTransformer:
+  num_queries: 300
+  num_denoising: 300
+
+DETRPostProcess:
+  num_top_queries: 300

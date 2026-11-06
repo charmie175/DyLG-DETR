@@ -1,0 +1,17 @@
+_BASE_: [
+  '../datasets/dior.yml',
+  '../runtime.yml',
+  '_base_/optimizer_6x.yml',
+  '_base_/rtdetr_r50vd.yml',
+  '_base_/rtdetr_reader.yml',
+]
+
+# Official DIOR archive extracted to D:/dataset/dior_extract/DIOR.
+# Override this path with -o DIOR dataset_dir=... when needed.
+weights: output/rtdetr_r50vd_6x_dior/model_final
+pretrain_weights: D:/DyLG-DETR/rtdetr_r50vd_6x_coco.pdparams
+save_dir: output/rtdetr_r50vd_6x_dior
+use_gpu: true
+find_unused_parameters: true
+log_iter: 20
+save_only_final: true

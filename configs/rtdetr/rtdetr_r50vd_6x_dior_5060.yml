@@ -1,0 +1,50 @@
+_BASE_: [
+  '../datasets/dior.yml',
+  '../runtime.yml',
+  '_base_/optimizer_6x.yml',
+  '_base_/rtdetr_r50vd.yml',
+  '_base_/rtdetr_reader.yml',
+]
+
+# RTX 5060 (8 GB) compatibility profile. The paper baseline remains in the
+# parent config; this profile keeps the same model and schedule while reducing
+# peak activation memory for local reproduction.
+amp: false
+snapshot_epoch: 72
+# The final model is used for evaluation only; skip the large Adam state file.
+save_optimizer: false
+# Avoid WSL host-memory exhaustion from multiple image-decoding workers.
+worker_num: 0
+memory_cleanup_interval: 500
+
+TrainReader:
+  sample_transforms:
+    - Decode: {}
+    - RandomDistort: {prob: 0.8}
+    - RandomExpand: {fill_value: [123.675, 116.28, 103.53]}
+    - RandomCrop: {prob: 0.8}
+    - RandomFlip: {}
+  batch_transforms:
+    - BatchRandomResize: {target_size: [640, 640], random_size: false, random_interp: false, keep_ratio: false}
+    - NormalizeImage: {mean: [0., 0., 0.], std: [1., 1., 1.], norm_type: none}
+    - NormalizeBox: {}
+    - BboxXYXY2XYWH: {}
+    - Permute: {}
+  batch_size: 1
+  shuffle: true
+  drop_last: true
+  collate_batch: false
+  use_shared_memory: false
+
+RTDETRTransformer:
+  num_queries: 300
+  num_denoising: 300
+
+DETRPostProcess:
+  num_top_queries: 300
+
+EvalReader:
+  batch_size: 1
+
+TestReader:
+  batch_size: 1

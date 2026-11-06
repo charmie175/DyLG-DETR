@@ -1,0 +1,18 @@
+_BASE_: ['rtdetr_r50vd_6x_dior_5060.yml']
+
+# Use only if the 16 GB Windows host still OOMs after the 10 GB WSL limit is
+# applied. This profile trades detector capacity for lower GPU and host RAM.
+TrainReader:
+  batch_transforms:
+    - BatchRandomResize: {target_size: [512, 512], random_size: false, random_interp: false, keep_ratio: false}
+    - NormalizeImage: {mean: [0., 0., 0.], std: [1., 1., 1.], norm_type: none}
+    - NormalizeBox: {}
+    - BboxXYXY2XYWH: {}
+    - Permute: {}
+
+RTDETRTransformer:
+  num_queries: 200
+  num_denoising: 100
+
+DETRPostProcess:
+  num_top_queries: 200

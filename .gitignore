@@ -1,0 +1,42 @@
+# Datasets, checkpoints, predictions, and experiment outputs
+/data/
+/datasets/
+/output/
+/outputs/
+/log/
+/experiments/
+*.pdparams
+*.pdopt
+*.pdema
+*.pth
+*.pt
+*.onnx
+*.json
+!configs/**/*.json
+
+# Generated plots and local notebooks
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.ipynb
+.ipynb_checkpoints/
+
+# Local build artifacts and caches
+__pycache__/
+*.pyc
+*.bak
+*.bak_*
+*.sh.bak_*
+ppdet/modeling/transformers/ext_op/build/
+ppdet/modeling/transformers/ext_op/dist/
+*.egg
+*.egg-info/
+*.before_*
+.vscode/
+.idea/
+
+# Local environments and secrets
+.env
+.venv/
+venv/

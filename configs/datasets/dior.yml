@@ -1,0 +1,23 @@
+metric: COCO
+num_classes: 20
+
+# DIOR COCO-format annotations. Override dataset_dir when launching
+# on a machine where the dataset is stored elsewhere.
+TrainDataset:
+  name: COCODataSet
+  image_dir: ''
+  anno_path: annotations/train.json
+  dataset_dir: D:/dataset/dior_extract/DIOR
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  name: COCODataSet
+  image_dir: ''
+  anno_path: annotations/val.json
+  dataset_dir: D:/dataset/dior_extract/DIOR
+  allow_empty: true
+
+TestDataset:
+  name: ImageFolder
+  anno_path: annotations/val.json
+  dataset_dir: D:/dataset/dior_extract/DIOR

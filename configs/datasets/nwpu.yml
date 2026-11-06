@@ -1,0 +1,25 @@
+metric: COCO
+num_classes: 20
+
+# 类别名称列表
+label_list: ['airplane', 'ship', 'storage tank', 'baseball diamond', 'tennis court', 
+             'basketball court', 'ground track field', 'harbor', 
+             'bridge', 'vehicle']
+
+TrainDataset:
+  !COCODataSet
+  image_dir: 
+  anno_path: Annotations/train.json
+  dataset_dir: /root/autodl-tmp/NWPU VHR-10_json/NWPU VHR-10 dataset
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  !COCODataSet
+  image_dir:
+  anno_path: Annotations/val.json
+  dataset_dir: /root/autodl-tmp/NWPU VHR-10_json/NWPU VHR-10 dataset
+
+TestDataset:
+  !ImageFolder
+  image_dir: /root/autodl-tmp/NWPU VHR-10_json/NWPU VHR-10 dataset/images/test
+  dataset_dir: /root/autodl-tmp/NWPU VHR-10_json/NWPU VHR-10 dataset

@@ -1,0 +1,23 @@
+metric: COCO
+num_classes: 15
+
+TrainDataset:
+  !COCODataSet
+    image_dir: train/images
+    anno_path: annotations/train_hbb.json
+    dataset_dir: /root/autodl-tmp/DOTA-v1.0-HBB
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  !COCODataSet
+    image_dir: val/images
+    anno_path: annotations/val_hbb.json
+    dataset_dir: /root/autodl-tmp/DOTA-v1.0-HBB
+    allow_empty: true
+
+TestDataset:
+  !COCODataSet
+    image_dir: val/images
+    anno_path: annotations/val_hbb.json
+    dataset_dir: /root/autodl-tmp/DOTA-v1.0-HBB
+    allow_empty: true
