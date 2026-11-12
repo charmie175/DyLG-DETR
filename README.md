@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # DyLG-DETR
 
 ## Caveat
@@ -100,6 +99,3 @@ The benchmark datasets (DIOR, DOTA-v1.0,
 SODA-A, and VisDrone2019-DET) are not covered
 by this licence and remain subject to their
 respective original licences.
-=======
-# DyLG-DETR
->>>>>>> 6f5e1ba3779277137d879ca5839e11996ccae1cf
