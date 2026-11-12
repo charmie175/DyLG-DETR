@@ -85,6 +85,21 @@ The Run and Debug panel contains:
 The unmodified 600-query profile is retained as
 `configs/rtdetr/rtdetr_r50vd_6x_dior_wsl.yml`; it exceeds 8 GB on the RTX 5060
 even with AMP.
+
+
+## Data and Materials Availability
+
+The original research materials supporting the
+DyLG-DETR study are made available under the
+Creative Commons Attribution 4.0 International
+(CC BY 4.0) License, where explicitly indicated.
+
+License details: [LICENSE-DATA.md](LICENSE-DATA.md)
+
+The benchmark datasets (DIOR, DOTA-v1.0,
+SODA-A, and VisDrone2019-DET) are not covered
+by this licence and remain subject to their
+respective original licences.
 =======
 # DyLG-DETR
 >>>>>>> 6f5e1ba3779277137d879ca5839e11996ccae1cf
