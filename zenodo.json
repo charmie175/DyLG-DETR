@@ -1,0 +1,34 @@
+{
+  "title": "Deformable Local-Global DETR for Remote Sensing Object Detection",
+  "upload_type": "software",
+  "description": "Source code, configuration files, and supporting scripts for Deformable Local-Global DETR for remote sensing object detection.",
+  "creators": [
+    { "name": "Qian, Lanmu" },
+    { "name": "Zhan, Jialei" },
+    { "name": "Hu, Yaowen" },
+    { "name": "Xie, Yiling" },
+    { "name": "Ma, Wanqi" },
+    { "name": "Xie, Yuhang" },
+    { "name": "Pan, Meixi" },
+    { "name": "Guo, Yanming" },
+    { "name": "Wei, Yingmei" }
+  ],
+  "keywords": [
+    "remote sensing",
+    "object detection",
+    "DETR",
+    "deformable attention",
+    "deep learning"
+  ],
+  "license": "CC-BY-4.0",
+  "access_right": "open",
+  "publication_date": "2026-11-12",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/charmie175/DyLG-DETR",
+      "relation": "isIdenticalTo",
+      "scheme": "url",
+      "resource_type": "software"
+    }
+  ]
+}

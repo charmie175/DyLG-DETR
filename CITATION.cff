@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+title: "Deformable Local-Global DETR for Remote Sensing Object Detection"
+message: "If you use this software, please cite the Zenodo release and the associated article."
+type: software
+authors:
+  - family-names: Qian
+    given-names: Lanmu
+  - family-names: Zhan
+    given-names: Jialei
+  - family-names: Hu
+    given-names: Yaowen
+  - family-names: Xie
+    given-names: Yiling
+  - family-names: Ma
+    given-names: Wanqi
+  - family-names: Xie
+    given-names: Yuhang
+  - family-names: Pan
+    given-names: Meixi
+  - family-names: Guo
+    given-names: Yanming
+  - family-names: Wei
+    given-names: Yingmei
+version: "1.0.0"
+date-released: 2026-11-12
+repository-code: "https://github.com/charmie175/DyLG-DETR"
+license: CC-BY-4.0
+url: "https://doi.org/10.5281/zenodo.24150834"
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Qian
+      given-names: Lanmu
+    - family-names: Zhan
+      given-names: Jialei
+    - family-names: Hu
+      given-names: Yaowen
+    - family-names: Xie
+      given-names: Yiling
+    - family-names: Ma
+      given-names: Wanqi
+    - family-names: Xie
+      given-names: Yuhang
+    - family-names: Pan
+      given-names: Meixi
+    - family-names: Guo
+      given-names: Yanming
+    - family-names: Wei
+      given-names: Yingmei
+  title: "Deformable Local-Global DETR for Remote Sensing Object Detection"
+  year: 2026
+  publisher: Zenodo
+  doi: "10.5281/zenodo.24150834"

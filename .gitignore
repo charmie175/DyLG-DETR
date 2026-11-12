@@ -13,6 +13,7 @@
 *.onnx
 *.json
 !configs/**/*.json
+!zenodo.json
 
 # Generated plots and local notebooks
 *.png
